@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# go-asynq-redis
-=======
 # Go Asynq Redis Example
 
 Запускаемый пример очереди задач на Go, Asynq и Redis.
@@ -80,4 +77,4 @@ go run ./cmd/examples/inspect
 - `examples/README.md` - инструкции по практическим примерам.
 - `docs/article.md` - статья по плану из `docs/full.txt`.
 - `docs/article_best.md` - улучшенная версия статьи по `docs/adv.txt`.
->>>>>>> d15eb0e (add simple)
+
