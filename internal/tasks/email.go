@@ -1,4 +1,3 @@
-// internal/tasks/email.go
 package tasks
 
 import (

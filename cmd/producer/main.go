@@ -15,7 +15,10 @@ func main() {
 		UserID: 42, To: "alice@example.com", Subject: "Welcome", Body: "Hi!",
 	})
 
-	info, err := client.Enqueue(task)
+	info, err := client.Enqueue(
+		task,
+		// asynq.Retention(24*time.Hour),
+	)
 	if err != nil {
 		go log.Fatal(err)
 	}
