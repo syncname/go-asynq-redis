@@ -34,7 +34,18 @@ func (h *EmailHandler) ProcessTask(ctx context.Context, t *asynq.Task) error {
 		// Битый payload — повторять бессмысленно.
 		return fmt.Errorf("unmarshal: %v: %w", err, asynq.SkipRetry)
 	}
-	log.Printf("sending email to %s", p.To)
-	// Здесь — реальная отправка через SMTP/API.
-	return nil
+
+    if err := sendEmail(ctx, p); err != nil {
+        // временная ошибка: asynq повторит задачу с задержкой
+        return fmt.Errorf("send email to %s: %w", p.To, err)
+    }
+	
+    return nil
+}
+
+
+// sendEmail — заглушка вместо реальной отправки письма.
+func sendEmail(ctx context.Context, p EmailPayload) error {
+    log.Printf("sending email to %s, subject=%q", p.To, p.Subject)
+    return nil
 }
