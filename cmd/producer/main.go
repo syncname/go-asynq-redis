@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"time"
 
 	"github.com/hibiken/asynq"
 	"github.com/syncname/go-asynq-redis/internal/tasks"
@@ -17,7 +18,7 @@ func main() {
 
 	info, err := client.Enqueue(
 		task,
-		// asynq.Retention(24*time.Hour),
+		asynq.Retention(24*time.Hour),
 	)
 	if err != nil {
 		go log.Fatal(err)

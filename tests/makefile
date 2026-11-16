@@ -45,6 +45,8 @@ test-basic: ## 4.   задача, handler, жизненный цикл, Retentio
 
 test-schedule: ## 5.1  ProcessIn / ProcessAt, секундная точность
 	$(call run_tests,^TestSchedule_)
+test-periodic: ## 5.1b
+	$(call run_tests,^TestPeriodic_)	
 
 test-retry: ## 5.2  MaxRetry, SkipRetry, RetryDelayFunc
 	$(call run_tests,^TestRetry_)
